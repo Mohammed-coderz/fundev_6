@@ -15,6 +15,7 @@ class _SqfliteScreenState extends State<SqfliteScreen> {
         title: Text("Sqflite"),
         centerTitle: true,
       ),
+      body: Center(),
     );
   }
 }
