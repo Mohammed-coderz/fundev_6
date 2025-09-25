@@ -5,6 +5,7 @@ import 'package:untitled4/screens/custom_widget_screen.dart';
 import 'package:untitled4/screens/drawar_screen.dart';
 import 'package:untitled4/screens/login_screen.dart';
 import 'package:untitled4/screens/splash_screen.dart';
+import 'package:untitled4/screens/sqflite_screen.dart';
 
 import 'screens/image_picker_screen.dart';
 
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrangeAccent),
       ),
-      home: SplashScreen(),
+      home: SqfliteScreen(),
     );
   }
 }
