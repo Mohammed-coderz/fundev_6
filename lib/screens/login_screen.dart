@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'package:untitled4/core/const/api_const.dart';
 import 'package:untitled4/screens/home_screen.dart';
 import 'package:untitled4/screens/signup_screen.dart';
 import '../core/const/png.dart';
@@ -17,6 +20,23 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController passwordController = TextEditingController();
   bool isPassword = true;
   bool? isChecked = false;
+
+  Future<void> Login({required String phone, required String password}) async {
+    print("login");
+    print(ApiConst.Login);
+    try {
+      final body = {"phone": phone, "password": password};
+      var response = await http.post(
+        Uri.parse(ApiConst.Login),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode(body),
+      );
+      print(response.statusCode);
+      print(response.body);
+    } catch (e) {
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -107,20 +127,13 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               InkWell(
                 onTap: () async {
-                  // print("login");
-                  // print("email is : ${emailController.text}");
-                  // print("password is : ${passwordController.text}");
-                  await SharedPreferencesHelper.saveString("token", "qwerty");
-                  String? token = await SharedPreferencesHelper.getString(
-                    "token",
-                  );
-                  print("token is : ${token}");
-                  await SharedPreferencesHelper.removeString("token");
-                  String? token2 = await SharedPreferencesHelper.getString(
-                    "token",
-                  );
-                  print("token is : ${token2}");
-                  // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen(),));
+                  if (emailController.text.isNotEmpty &&
+                      passwordController.text.isNotEmpty) {
+                    await Login(
+                      phone: emailController.text,
+                      password: passwordController.text,
+                    );
+                  }
                 },
                 child: Container(
                   height: height * 0.05,
