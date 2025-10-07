@@ -1,21 +1,10 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:untitled4/feature/login/view/login_screen.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await EasyLocalization.ensureInitialized();
-
   debugPaintSizeEnabled = false;
-  runApp(
-    EasyLocalization(
-      supportedLocales: [Locale('en'), Locale('ar')],
-      path: 'assets/translations',
-      fallbackLocale: Locale('en'),
-      child:
-      MyApp()
-  ),
-  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -24,15 +13,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrangeAccent),
       ),
-      home: ,
+      home: LoginScreen(),
     );
   }
 }
