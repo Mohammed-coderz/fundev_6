@@ -1,13 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:untitled4/screens/custom_widget_screen.dart';
-import 'package:untitled4/screens/drawar_screen.dart';
-import 'package:untitled4/screens/login_screen.dart';
-import 'package:untitled4/screens/splash_screen.dart';
-import 'package:untitled4/screens/sqflite_screen.dart';
-
-import 'screens/image_picker_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,7 +32,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrangeAccent),
       ),
-      home: LoginScreen(),
+      home: ,
     );
   }
 }
