@@ -9,7 +9,7 @@ class OnInitialGetCategoriesState extends GetCategoriesState {}
 class OnLoadingGetCategoriesState extends GetCategoriesState {}
 
 class OnLoadedGetCategoriesState extends GetCategoriesState {
-  List<CategoriesModel> categories;
+  CategoriesModel categories;
   OnLoadedGetCategoriesState({required this.categories});
 }
 

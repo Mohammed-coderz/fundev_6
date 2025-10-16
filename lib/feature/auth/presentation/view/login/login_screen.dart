@@ -129,6 +129,10 @@ class _LoginScreenState extends State<LoginScreen> {
               SnackBar(
                 content: Text("Login Successfully"),
               ),);
+            if(state.user.result == true){
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ,));
+
+            }
           }
         },
       ),

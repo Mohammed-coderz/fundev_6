@@ -15,7 +15,7 @@ class GetCategoriesCubit extends Cubit<GetCategoriesState> {
 
   Future<void> getCategories() async {
     emit(OnLoadingGetCategoriesState());
-    print("login");
+    print("get categories");
     print(ApiConst.Login);
 
     try {
