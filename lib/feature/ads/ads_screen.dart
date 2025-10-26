@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled4/feature/ads/widget/banner_ads.dart';
 
 class AdsScreen extends StatefulWidget {
   const AdsScreen({super.key});
@@ -10,6 +11,13 @@ class AdsScreen extends StatefulWidget {
 class _AdsScreenState extends State<AdsScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Ads Screen"),
+        centerTitle: true,
+      ),
+      body: CircularProgressIndicator(),
+      bottomNavigationBar: BannerAds(),
+    );
   }
 }
