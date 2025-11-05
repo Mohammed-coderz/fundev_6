@@ -1,12 +1,12 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'feature/ads/ads_screen.dart';
+import 'feature/test/chat.dart';
+import 'feature/test/items.dart';
 
 Future<void> main() async {
-  debugPaintSizeEnabled = false;
   WidgetsFlutterBinding.ensureInitialized();
-  await MobileAds.instance.initialize();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrangeAccent),
       ),
-      home: AdsScreen(),
+      home: Chat(),
     );
   }
 }
