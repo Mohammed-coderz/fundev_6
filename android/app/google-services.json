@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "920142302513",
+    "project_id": "real-time-db-97109",
+    "storage_bucket": "real-time-db-97109.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:920142302513:android:543ae28a474389697d7410",
+        "android_client_info": {
+          "package_name": "com.example.untitled4"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbg-Lu_IMpnCxsCf2zPsdwsRTQIhZCqe8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

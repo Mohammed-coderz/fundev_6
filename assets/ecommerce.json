@@ -1,0 +1,651 @@
+{
+	"info": {
+		"_postman_id": "5b970d80-1da5-410c-b32c-bf523573e0ab",
+		"name": "ecommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26909785"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"m7md\",\n  \"email\": \"m7md@example.com\",\n  \"phone\": \"{{phone}}\",\n  \"password\": \"{{password}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/ECOMMERCE/auth/register.php",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ECOMMERCE",
+								"auth",
+								"register.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n//   \"phone\": {{phone}},\n  \"phone\": \"0799999999\",\n  \"password\": {{password}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/ECOMMERCE/auth/login.php",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ECOMMERCE",
+								"auth",
+								"login.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "get all categories",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/ECOMMERCE/categories/getAllCategories.php",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ECOMMERCE",
+								"categories",
+								"getAllCategories.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/ECOMMERCE/categories/createCategory.php",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ECOMMERCE",
+								"categories",
+								"createCategory.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update category image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/Users/mohammed/Downloads/SVG 2/Artboard – 8.svg"
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/ECOMMERCE/categories/updateImage.php",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ECOMMERCE",
+								"categories",
+								"updateImage.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1,\n  \"name\": \"كتب حديثة\",\n  \"slug\": \"modern-books\",\n  \"description\": \"تحديث جديد للتصنيف\",\n  \"is_active\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/ECOMMERCE/categories/update_category.php",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ECOMMERCE",
+								"categories",
+								"update_category.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "sub categories",
+			"item": [
+				{
+					"name": "get all sub categories",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/ECOMMERCE/sub_categories/get_sub_categories.php",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ECOMMERCE",
+								"sub_categories",
+								"get_sub_categories.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get sub categories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"category_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/ECOMMERCE/sub_categories/get_sub_categories_by_category.php",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ECOMMERCE",
+								"sub_categories",
+								"get_sub_categories_by_category.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create sub category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "كوميديا",
+									"type": "text"
+								},
+								{
+									"key": "slug",
+									"value": "comedy",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/Users/mohammed/Downloads/SVG 2/Artboard – 8.svg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/ECOMMERCE/sub_categories/create_sub_category.php",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ECOMMERCE",
+								"sub_categories",
+								"create_sub_category.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update sub category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "slug",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/ECOMMERCE/sub_categories/create_sub_category.php",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ECOMMERCE",
+								"sub_categories",
+								"create_sub_category.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "create product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "item1",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "item 1 description",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "stock",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "sub_category_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": [
+										"/Users/mohammed/Downloads/SVG 2/Logo 3.svg",
+										"/Users/mohammed/Downloads/SVG 2/Logo 2.svg",
+										"/Users/mohammed/Downloads/SVG 2/Logo 1.svg"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/ECOMMERCE/products/create_product.php",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ECOMMERCE",
+								"products",
+								"create_product.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"sub_category_id\": 2\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/ECOMMERCE/products/get_products_by_sub_category.php",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ECOMMERCE",
+								"products",
+								"get_products_by_sub_category.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_id",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "comment",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "image_url",
+									"type": "file",
+									"src": "/Users/mohammed/Downloads/SVG 2/Logo 3.svg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/ECOMMERCE/products/add_comment.php",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ECOMMERCE",
+								"products",
+								"add_comment.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "favorite",
+			"item": [
+				{
+					"name": "add fav",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"product_id\": 5\n}\n"
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/ECOMMERCE/favorites/add_favorite.php",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ECOMMERCE",
+								"favorites",
+								"add_favorite.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove fav",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"product_id\": 5\n}\n"
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/ECOMMERCE/favorites/remove_favorite.php",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"ECOMMERCE",
+								"favorites",
+								"remove_favorite.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
